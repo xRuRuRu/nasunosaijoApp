@@ -1,0 +1,54 @@
+/* styles/Estimate.module.css */
+
+.container {
+  padding: 2rem;
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #fdf9fc;
+  color: #333;
+}
+
+.section {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #a063b1; /* メインカラー */
+  margin-bottom: 0.75rem;
+}
+
+.item {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.totalRow {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #000000;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.backButton {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #a063b1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: block;
+}
+
+.backButton:hover {
+  background-color: #ec6f9e;
+}

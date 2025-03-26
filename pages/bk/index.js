@@ -51,7 +51,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>なすの斎場グループ　御見積り作成システム</h1>
+      <h1 style={{ marginBottom: '1rem' }}>メニュー一覧</h1>
 
       {/* カテゴリタブ */}
       <div className={styles.categoryTabs}>
@@ -71,10 +71,13 @@ export default function Home() {
       </div>
 
       {/* 商品一覧 */}
-      <ul className={styles.menuList}>
+      <ul style={{ listStyle: 'none', padding: 0 }}>
         {menus
           .filter((item) =>
-            item.category?.split(',').map((c) => c.trim()).includes(activeCategory)
+            item.category
+              ?.split(',')
+              .map((c) => c.trim())
+              .includes(activeCategory)
           )
           .map((item) => (
             <li
@@ -82,13 +85,10 @@ export default function Home() {
               onClick={() => openPopup(item)}
               className={styles.menuItem}
             >
-              {item.recommended === 1 && (
-                <div className={styles.recommendTag}>人気</div>
-              )}
               <img
                 src={item.image_url}
                 alt={item.name}
-                className={styles.menuImage}
+                style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
               />
               <div style={{ marginTop: '0.5rem' }}>
                 <strong>{item.name}</strong><br />
@@ -100,7 +100,6 @@ export default function Home() {
             </li>
           ))}
       </ul>
-
 
       {/* モーダル */}
       {selectedItem && (
@@ -127,7 +126,7 @@ export default function Home() {
               style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
             />
             <h2 style={{ margin: '1rem 0 0.5rem' }}>{selectedItem.name}</h2>
-            <p>(税込)　¥{selectedItem.price}</p>
+            <p>¥{selectedItem.price}</p>
 
             <div style={{
               display: 'flex',
@@ -146,8 +145,13 @@ export default function Home() {
                     [selectedItem.menuCode]: value,
                   }));
                 }}
-                className={styles.quantityInput}
-              /><p>個</p>
+                style={{
+                  width: '100px',
+                  textAlign: 'center',
+                  fontSize: '1.5rem',
+                  padding: '0.25rem'
+                }}
+              />
             </div>
 
             <button onClick={closePopup} className={styles.modalCloseButton}>決定</button>
@@ -175,7 +179,7 @@ export default function Home() {
           }}
           className={styles.nextButton}
         >
-          集計へ進む
+          次へ
         </button>
       </div>
 
